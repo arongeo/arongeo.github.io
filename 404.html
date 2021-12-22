@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>404 - arongeo</title>
+		<link rel="shortcut icon" type="image/png" href="https://arongeo.com/icons/favicon.png"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			.set-background {
+				background-color: #1F1D1D;
+				color: #FFFFFF;
+			}
+			.horizontal-center {
+				margin: auto;
+				text-align: center;
+				width: 50%
+			}
+
+			.adjust-space-between-lines-first-line {
+				margin: 0;
+			}
+
+			.adjust-space-between-lines {
+				margin: 0;
+				padding-top: 0;
+			}
+			#text-inline {
+				display: inline;
+			}
+
+			.top-right {
+				position: absolute;
+				top: 8px;
+				right: 16px;
+			}
+
+			.top-left {
+				position: absolute;
+				top: 8px;
+				left: 16px;
+			}
+
+			a.link:link {
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+
+			a.link:visited {
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+
+			a.link:hover {
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+			
+			a.link:active {
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+			
+			.projects-style {
+				font-size: 20px;
+				font-weight: 350;
+			}
+			
+			.thin {
+				font-weight: 350;
+			}
+
+
+			a.small-link:link {
+				color: #FFFFFF;
+				text-decoration: none;
+				font-size: 20px;
+			}
+
+			a.small-link:visited {
+				color: #FFFFFF;
+				text-decoration: none;
+				font-size: 20px;
+			}
+
+			a.small-link:hover {
+				color: #FFFFFF;
+				text-decoration: none;
+				font-size: 20px;
+			}
+			
+			a.small-link:active {
+				color: #FFFFFF;
+				text-decoration: none;
+				font-size: 20px;
+			}
+
+			.center {
+				text-align: center;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}
+		</style>
+	</head>
+	<body class="set-background">
+        <div class="center">
+			<h1>404</h1>
+			<p><b>Page not found</b>
+				<br>
+				<br>
+				Redirecting to the main page soon...
+			</p>
+		</div>
+		<script>
+			async function redirect() {
+				await new Promise(resolve => setTimeout(resolve, 5000));
+				window.location.replace("https://arongeo.com/");
+			}
+
+			redirect();
+		</script>
+    </body>
+</html>
