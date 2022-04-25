@@ -59,3 +59,9 @@ a.link:active {
 	font-size: 20px;
 	font-weight: 350;
 }
+
+.menu {
+	color: #1F1D1D;
+	background-color: #FFFFFF;
+	border-radius: 15px;
+}
