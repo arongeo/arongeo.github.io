@@ -29,10 +29,11 @@
 	right: 16px;
 }
 
-.top-left {
+.left-side {
 	position: absolute;
 	top: 8px;
 	left: 16px;
+	width: 70%;
 }
 
 a.link:link {
@@ -64,4 +65,68 @@ a.link:active {
 	color: #1F1D1D;
 	background-color: #FFFFFF;
 	border-radius: 15px;
+}
+
+.right-side {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	width: 30%;
+	text-decoration: none;
+}
+
+.project-rect {
+	width: 100%;
+	height: 120px;
+	background-color: #151515;
+	border-radius: 25px;
+	box-shadow: 5px 5px #000000;
+	padding: 15px;
+	font-style: none;
+	color: #FFFFFF;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.modal-background {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgb(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #1F1D1D;
+	margin: 5% auto;
+	padding: 25px;
+	border: 1px solid #313030;
+	border-radius: 15px;
+	width: 80%;
+}
+
+.modalclosebtn {
+	position: absolute;
+	width: 40px;
+	display: inline;
+	top: 10px;
+	right: 10px;
+	border: none;
+	border-radius: 25px;
+	background-color: #FFFFFF;
+	font-size: 11px;
+}
+
+.checkoutonghbtn {
+	text-decoration: none;
+	color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	border-radius: 15px;
+	width: calc(20% + 5px);
 }

@@ -8,24 +8,68 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body class="set-background">
-		<div class="top-left">
+		<div class="left-side">
 				<h1><b><big>arongeo</big></b></h1>
-				<div class="projects-style">
+				<!--<div class="projects-style">
 					<a href="https://arongeo.com/projects.html" class="link">projects</a>
-				</div>
+				</div>-->
 				<p></p>
 				<div style="display:inline;">
 					<a href="https://github.com/arongeo"><img border="0" alt="GitHub" src="https://arongeo.com/icons/GitHub-Mark-Light-64px.png" width="40" height="40" /></a>
-				</span>
+				</div>
 			<br>
 			<br>
 			<h1><b>Hi, my name is Aron!</b></h1>
 			<h3>I am a software developer.</h3>
-			<h3>My focus is mainly (embedded) systems development or low-level programming, <br>but I really like to work on other projects too</h3>
-			<h3>I am experienced using Python, Rust, and some C, <br>but I am also able to use other languages as well</h3>
+			<h3>My focus is mainly (embedded) systems development or low-level programming, but I really like to work on other projects too.</h3>
+			<h3>I am experienced using Python, Rust, and some C, but I am also able to use other languages as well.</h3>
 			<h3>Avid neovim fan/user</h3>
 			<br>
-			<embed type="text/html" src="https://github-readme-stats.vercel.app/api/top-langs/?username=arongeo&theme=dark&layout=compact">
+			<embed type="text/html" src="https://github-readme-stats-phi-orcin-81.vercel.app/api/top-langs/?username=arongeo&theme=dark&layout=compact">
 		</div>
+
+		<div class="right-side">
+			<div class="project-rect" onclick="openmodal('chip8modal');">
+				<h5>Chip-8 Emulator in Rust</h5>
+				<p>My adventure with implementing a Chip-8 emulator in Rust...</p>
+			</div>
+		</div>
+
+		<div id="chip8modal" class="modal-background">
+			<div id="chip8modalcontent" class="modal-content">
+				<button class="modalclosebtn" onclick="closemodal('chip8modal')">Close</button>
+				<h1 style="display: inline;">Chip-8 Emulator in Rust</h1>
+				<h2>The idea</h2>
+				<p>I first considered writing a Chip-8 emulator maybe around 2 or 1 and a half years ago. I had way less experience and I really didn't do any systems programming, or knew anything about computer architecture, so it was a daring project, but still I hopped down to my computer and started doing and I ultimately... failed. Yeah, so I abandoned it very quickly revisiting it a few times, but never really doing anything.
+				</p>
+				<p>But suddenly last year (2022) I had the sudden urge to learn Rust. Which has became one of my favourite languages since then. And I started thinking about what could I do with it after doing a number of smaller projects, and ultimately stumbled upon the Chip-8 emulator, I even thought that it would be easier since I had some experience with it (I had no experience with it.).</p>
+				<p>So I started working on it.</p>
+				
+				<h2>Execution of the idea</h2>
+
+				<p>I started working on it around October/November maybe and quickly built up a base for the emulator with SDL2 (regretted it later), based on <a href="http://devernay.free.fr/hacks/chip8/C8TECH10.HTM">Cowgod's Chip-8 Technical Reference</a>. The Chip-8 isn't a really complex system, especially if you look at other consoles (if you can call Chip-8 a console) like the GameBoy, but I really think you can have some fun with it, if you want to.</p>
+				<p>After implementing IO and some instructions I kinda got bored of the project for a bit and decided to pursue something else for a while, until eventually coming back to it in the new year (2023), and implementing the rest of the instructions and stumbling upon the foreshadowed SDL2 issue.</p>
+
+				<h2>The issue</h2>
+
+				<p>The issue with SDL2 was that it cleared the backbuffer after every frame, so you had to rerender the sprites every single frame, but rerendering every frame made the whole emulator very laggy and slow for some reason even on a fast machine, I'm sure there are work arounds, but I didn't find any in the Rust wrapper for it, so I decided to ditch SDL2 and work with something much much smaller <a href="https://github.com/emoon/minifb">minifb</a>. And then it was time to add sound, which was honestly really easy with <a href="https://github.com/RustAudio/rodio">rodio</a>.</p>
+
+				<p>Lastly I implemented the remaining instructions, and then fixed bugs, patches and misbehaving instructions.</p>
+				<p>And it was done, so be sure to check it out :)</p>
+
+				<a href="https://github.com/arongeo/chip8"><img src="icons/checkoutongh.png" alt="GitHub Logo" height="50"></a>
+			</div>
+		</div>
+		<script>
+			function openmodal(modalid) {
+				var modal = document.getElementById(modalid);
+				modal.style.display = "block";
+			}
+
+			function closemodal(modalid) {
+				var modal = document.getElementById(modalid);
+				modal.style.display = "none";
+			}
+		</script>
 	</body>
 </html>
