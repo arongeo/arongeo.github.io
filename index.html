@@ -52,7 +52,7 @@
 
 				<h2>The issue</h2>
 
-				<p>The issue with SDL2 was that it cleared the backbuffer after every frame, so you had to rerender the sprites every single frame, but rerendering every frame made the whole emulator very laggy and slow for some reason even on a fast machine, I'm sure there are work arounds, but I didn't find any in the Rust wrapper for it, so I decided to ditch SDL2 and work with something much much smaller <a href="https://github.com/emoon/minifb">minifb</a>. And then it was time to add sound, which was honestly really easy with <a href="https://github.com/RustAudio/rodio">rodio</a>.</p>
+				<p>The issue with SDL2 was that it cleared the backbuffer after every frame, so you had to rerender the sprites every single frame, but rerendering every frame made the whole emulator very laggy and slow for some reason even on a fast machine, I'm sure there are work arounds, but I didn't find any in the Rust wrapper for it, so I decided to ditch SDL2 and work with something much much smaller, namely <a href="https://github.com/emoon/minifb">minifb</a>. And then it was time to add sound, which was honestly really easy with <a href="https://github.com/RustAudio/rodio">rodio</a>.</p>
 
 				<p>Lastly I implemented the remaining instructions, and then fixed bugs, patches and misbehaving instructions.</p>
 				<p>And it was done, so be sure to check it out :)</p>
