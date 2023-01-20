@@ -1,3 +1,6 @@
+* {
+	box-sizing: border-box;
+}
 
 .set-background {
 	background-color: #1F1D1D;
@@ -30,10 +33,11 @@
 }
 
 .left-side {
-	position: absolute;
+	position: fixed;
 	top: 8px;
 	left: 16px;
 	width: 70%;
+	overflow: auto;
 }
 
 a.link:link {
@@ -68,10 +72,11 @@ a.link:active {
 }
 
 .right-side {
-	position: absolute;
+	position: fixed;
 	top: 8px;
 	right: 16px;
 	width: 30%;
+	overflow: auto;
 	text-decoration: none;
 }
 
@@ -129,4 +134,20 @@ a.link:active {
 	border: 1px solid #FFFFFF;
 	border-radius: 15px;
 	width: calc(20% + 5px);
+}
+
+@media screen and (max-width: 700px) {
+	.left-side {
+		position: relative;
+		width: 100%;
+	}
+	.right-side {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.project-rect {
+		width: 80%;
+		margin-left: 32px;
+	}
 }
