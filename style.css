@@ -139,7 +139,7 @@ a.link:active {
 @media screen and (max-width: 700px) {
 	.left-side {
 		position: relative;
-		width: 100%;
+		width: 90%;
 	}
 	.right-side {
 		width: 100%;
