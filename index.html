@@ -64,6 +64,20 @@
 				<a href="https://github.com/arongeo/chip8"><img src="icons/checkoutongh.png" alt="GitHub Logo" height="50"></a>
 			</div>
 		</div>
+		<div id="onemodal" class="modal-background">
+			<div id="onemodalcontent" class="modal-content">
+				<button class="modalclosebtn" onclick="closemodal('onemodal')">Close</button>
+				<h1 style="display: inline;">My first operating system</h1>
+				<h2>The idea</h2>
+				<p>Well, the idea is basically: write an operating system for the Raspberry Pi Zero W (version 1) to mess around with and build stuff on it.
+				</p>
+				<p>My journey through operating systems development starts quite earlier with a few unsuccessful attempts, and some tutorials, which sent me to the realm of boredom. I didn't really know what I was doing and well... that's still the case, at least sometimes, but that's how we learn, no? No? I hope so. Anyways, this time around I was like I want to build something bare metal on this RPiZ, so I was like lets start building, in Rust, now that didn't really work out since Rust doesn't have support for the ARMv6Z architecture, which, you know the RPiZ is based on. Although I did get some things working (a blinking LED) everything about it seemed to be quite unstable, and that with a single line of code I could just crash the whole thing. So I switched to good old C, now by this time I was pretty sure I wanted to build an operating system to go under this project of mine, so that's what I started doing, I got an LED working, wrote some memutils, and started work on the MMU.</p>
+				
+				<h2>The MMU</h2>
+
+				<p>Now the MMU may sound intimidating at first, and it kind of is, but once you learn how it works, it's actually quite simple and understandable, for the most part at least, it does involve quite a bit of bit manipulation, but that just comes with the job. Now I stumbled upon some great writeups about this namely <a href="https://github.com/dwelch67/raspberrypi-zero/tree/master/mmu">this repository</a>. It was pretty helpful in helping me understand the MMU. But I did encounter some problems, namely the adding an MMU section takes way too long for some reason so long in fact I could probably leave the thing on for an hour and it still wouldn't get to the LED blinking part of the program problem. And that is where I am now. So I guess stay tuned for a solution maybe, I suspect it has something to do with the write buffer, but I'm not entirely sure. Anyways, see ya.</p>
+			</div>
+		</div>
 		<script>
 			function openmodal(modalid) {
 				var modal = document.getElementById(modalid);
