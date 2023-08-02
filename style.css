@@ -76,6 +76,7 @@ a.link:active {
 	top: 8px;
 	right: 16px;
 	width: 30%;
+	height: 100%;
 	overflow: auto;
 	text-decoration: none;
 }
