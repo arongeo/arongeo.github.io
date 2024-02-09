@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise</title>
+    <style>
+        @font-face {
+            font-family: Pacifico;
+            src: url("Pacifico-Regular.ttf");
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f5bff2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Pacifico;
+        }
+
+        svg {
+            filter: blur(0.4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        #center {
+            cursor: pointer;
+        }
+
+        @keyframes grow {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(100);
+            }
+        }
+
+        #svgText {
+            transition: all 1s;
+            cursor: pointer;
+        }
+
+        #willYouBeText {
+            font-family: Pacifico;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0%;
+            transition: 1s all;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body onload="start()">
+    <h1 id="willYouBeText">Will you be my valentine lovey ko?</h1>
+    <div id="center" onclick="clickedMainHeart()" on>
+        <svg id="mainHeart" fill="#f714b7" height="35vh" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 20a1 1 0 0 1-.437-.1C11.214 19.73 3 15.671 3 9a5 5 0 0 1 8.535-3.536l.465.465.465-.465A5 5 0 0 1 21 9c0 6.646-8.212 10.728-8.562 10.9A1 1 0 0 1 12 20z"/>
+            <text x="50%" y="50%" fill="#f7f7f7" font-size="2px" dominant-baseline="middle" text-anchor="middle" id="svgText" style="opacity: 100;">Click me lub</text>
+        </svg>
+    </div>
+    <script>
+        var heartGenerator, opacityReduceCounter;
+
+        function addHeart() {
+            let mainHeart = document.getElementById("mainHeart");
+
+            let heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            heart.setAttribute("class", "tempHeart");
+            heart.style.fill = "#f714b7";
+            let generatedHeartWidth = Math.floor(Math.random() * (100 - 50 + 1) + 50);
+            heart.style.width = generatedHeartWidth;
+            heart.setAttribute("height", "100px");
+            heart.setAttribute("viewBox", "0 0 24 24");
+            heart.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+            heart.innerHTML = '<path d="M12 20a1 1 0 0 1-.437-.1C11.214 19.73 3 15.671 3 9a5 5 0 0 1 8.535-3.536l.465.465.465-.465A5 5 0 0 1 21 9c0 6.646-8.212 10.728-8.562 10.9A1 1 0 0 1 12 20z"/>';
+            heart.style.position = "absolute";
+
+            let mainHeartHeight = mainHeart.height.baseVal.value;
+            let mainHeartWidth = mainHeart.width.baseVal.value
+            let mainHeartRect = mainHeart.getBoundingClientRect();
+            let mainHeartX = mainHeartRect.left;
+            let mainHeartY = mainHeartRect.top;
+
+            let generatedHeartX, generatedHeartY;
+            
+            // Sometimes works, sometimes doesn't
+            do {
+                generatedHeartX = Math.random() * window.innerWidth;
+            } while (generatedHeartX < mainHeartX - generatedHeartWidth && (mainHeartWidth + mainHeartX) < generatedHeartX)
+
+            do {
+                generatedHeartY = Math.random() * window.innerWidth;
+            } while (generatedHeartY < mainHeartY - generatedHeartWidth && (mainHeartHeight + mainHeartY) < generatedHeartY)
+
+            heart.style.left = generatedHeartX;
+            heart.style.top = generatedHeartY;
+            heart.style.filter = "blur(1px)";
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                document.body.removeChild(heart);
+            }, 3000);
+        }
+
+        function start() {
+            let center = document.getElementById("center");
+            center.onmousedown = clickedMainHeart;
+            addHeart()
+            heartGenerator = setInterval(addHeart, Math.random() * 500);
+        }
+
+
+        async function clickedMainHeart() {
+            clearInterval(heartGenerator);
+            let svgText = document.getElementById("svgText");
+            svgText.style.opacity = "0%";
+            await new Promise(r => setTimeout(r, 1000));
+            let mainHeart = document.getElementById("mainHeart");
+            mainHeart.style.animation = "grow 5s forwards";
+            await new Promise(r => setTimeout(r, 500));
+            let willYouBeText = document.getElementById("willYouBeText");
+            willYouBeText.style.display = "block";
+            willYouBeText.style.opacity = "100%";
+            document.getElementById("center").style.cursor = "auto";
+        }
+    </script>
+</body>
+</html>
